@@ -1,0 +1,49 @@
+<!DOCTYPE >
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>LOGIN</title>
+    <link rel="stylesheet" type="text/css" href="NewLogin.css"/>
+    <link rel="stylesheet" type="text/css" href="font-awesome.css"/>
+</head>
+<script type="text/javascript" src="../../../../../../untitled1/jquery-3.5.1.min.js"></script>
+<script language="jquery-1.10.1.js" type="text/javascript">
+    $(document).ready(function () {
+        $("#button_login").click(function () {
+            let input_password = $("#text_password").val();
+            let input_name = $("#text_name").val();
+            let url = "http://zhj12399.cn:9100/api/People/JudgePassword?name=" + input_name + "&password=" + input_password;
+            $.post(url, {},
+                function (data) {
+                    if (data.toString() !== "0") {//登陆成功
+                        sessionStorage.setItem("LoginID", data)
+                        alert("登陆成功");
+                        window.location.href = "../index.html";
+                    } else {
+                        $("#text_name").val("");
+                        $("#text_password").val("");
+                        alert("账户或密码错误!");
+                    }
+                }
+            )
+        });
+    });
+</script>
+<body>
+<div id="login_box">
+    <h2> LOGIN</h2>
+    <div id="form">
+        <div id="input_box">
+            <i class="fas fa-user"></i>
+            <input type="text" id = "text_name" placeholder="Username">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="text_password" placeholder="Password">
+        </div>
+    </div>
+    <button id="button_login">Sign in</button>
+    <div id="sign-in">
+        <a href="#">忘记密码？</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>北食堂二级界面</title>
+
+    <style type="text/css">
+        #zpc-content {
+            height: 650px;
+            width: auto;
+            padding-top: 0px;
+        }
+
+        #ex-top {
+            margin-top: 0px;
+        }
+
+        .step-text {
+            height: 90px;
+            width: 200px;
+            margin-top: 10px;
+            text-align: left;
+            vertical-align: middle;
+            padding-top: 15px;
+            line-height: 24px;
+            padding-bottom: 15px;
+        }
+
+        .step-text p {
+            margin: 10px;
+        }
+
+        .step-img1 {
+            margin-top: 10px;
+        }
+
+        .step-img {
+            height: 120px;
+            width: 160px;
+            margin-top: 10px;
+            margin-left: 0px;
+        }
+
+        #zpc-content-00 {
+            float: left;
+            height: 650px;
+            width: 670px;
+            padding: 0px;
+            margin-top: 0px;
+        }
+
+        .video {
+            height: 378px;
+        }
+
+        .video-text {
+            height: 130px;
+        }
+
+        #zpc-content-step {
+            height: 650px;
+            width: 420px;
+            float: right;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            margin-left: 10px;
+            padding: 0px;
+        }
+
+        #step-text {
+            margin: 0px;
+            height: 650px;
+            width: 220px;
+            float: right;
+        }
+
+        #step-img {
+            height: 650px;
+            width: 180px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            float: right;
+        }
+
+        .app {
+            width: 1100px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .box {
+            float: left;
+            width: 280px;
+            overflow: hidden;
+            background: #f6f6f6;
+            box-sizing: border-box;
+            margin-left: 20px;
+            padding-top: 0;
+            padding-right: 15px;
+            padding-bottom: 25px;
+            padding-left: 15px;
+            position: relative;
+            height: 328px;
+        }
+
+        #box-left {
+            margin-left: 14px;
+        }
+
+        .box a {
+            float: inherit;
+
+            flex-direction: column;
+            align-items: center;
+            color: #535353;
+            text-decoration: none;
+
+        }
+
+        .box a:hover {
+            color: #e52d67;
+        }
+
+        .imgBox {
+            width: 280px;
+            height: 187px;
+            overflow: hidden;
+        }
+
+        .imgBox img {
+            width: 100%;
+            height: 100%;
+            transition: all 0.6s linear;
+        }
+
+        .source {
+            border: 1px solid #535353;
+            padding: 6px 20px;
+            border-radius: 25px;
+            margin: 20px;
+        }
+
+        .title {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .detail {
+            font-size: 14px;
+            line-height: 160%;
+            text-align: justify;
+            width: 100%;
+        }
+
+        .box > a::after {
+            content: '';
+            width: 280px;
+            position: absolute;
+            background: #e52d67;
+            bottom: 0;
+            height: 0px;
+            transition: height 0.3s linear;
+
+        }
+
+        .box:hover img {
+            transform: scale(1.15);
+        }
+
+        .box:hover .source {
+            background: #e52d67;
+            border-color: #e52d67;
+            color: #ffffff;
+        }
+
+        .btn {
+            font-size: 16px;
+            vertical-align: sub;
+            text-align: justify;
+            position: absolute;
+            bottom: 0px;
+            right: 20px;
+            border: 2px solid #F00;
+        }
+    </style>
+    <link href="../css/banner-style.css" rel="stylesheet" type="text/css"/>
+</head>
+<script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+<script language="jquery-1.10.1.js" type="text/javascript">
+    $(document).ready(function () {
+        let userid = sessionStorage.getItem("LoginID");
+        if (userid == null) {
+            $("#text_info").text("请登陆或注册")
+        } else {
+            let url = "http://zhj12399.cn:9100/api/People/GetNameById?id=" + userid;
+            $.post(url, {},
+                function (data) {
+                    if (data.toString() !== "0") {
+                        $("#text_info").text("你好：" + data.toString())
+                    } else {
+                        sessionStorage.removeItem("LoginID");
+                        $("#text_info").text("请登陆或注册")
+                    }
+                }
+            )
+        }
+
+        let menu = sessionStorage.getItem("msg")
+        let url_menu = "http://zhj12399.cn:9100/api/Recipe/GetStarByName?name=" + menu;
+        $.post(url_menu, {},
+            function (data) {
+                $("#text_star").text(data)
+            }
+        );
+
+        let url_commit = "http://zhj12399.cn:9100/api/Recipe/GetCommitByName?name=" + menu;
+        $.post(url_commit, {},
+            function (data) {
+                var showtext = ""
+                for (var i = 0; i < data.length; i++) {
+                    showtext += data[i].name + " : " + data[i].commit + "<br>";
+                }
+                $("#text_show").html(showtext);
+            }
+            , "json");
+    });
+</script>
+<body>
+<div class="menus menus1">
+    <h1>营养早餐
+    </h1>
+    <ul>
+        <div class="bg"></div>
+        <li><span><a href="../index.html">首页</a></span></li>
+        <li><span><a href="login.html">登录</a></span></li>
+        <li><span><a href="register.html">注册</a></span></li>
+        <a id="text_info">请登陆或注册</a>
+    </ul>
+    <div class="clear"></div>
+</div>
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="../js/index.js"></script>
+<div class="banenr">
+    <div class="banner-bg">
+        <h3>简单/美味/健康</h3>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+<script language="jquery-1.10.1.js" type="text/javascript">
+    $(document).ready(function () {
+        let menu = sessionStorage.getItem("msg");
+        $("#title").text("美味菜品：" + menu);
+
+        $("#button_star").click(function () {
+            let menu = sessionStorage.getItem("msg")
+            let url = "http://zhj12399.cn:9100/api/Recipe/AddStarByName?name=" + menu;
+            $.post(url, {},
+                function (data) {
+                    $("#text_star").text(data);
+                }
+            )
+        });
+
+
+        $("#button_commit").click(function () {
+            let userid = sessionStorage.getItem("LoginID");
+            let menu = sessionStorage.getItem("msg");
+            let commit = $("#text_commit").val();
+            if (userid == null) {
+                alert("请登陆后评论")
+            } else {
+                let url_push = "http://zhj12399.cn:9100/api/Recipe/AddCommitByID?id=" + userid + "&name=" + menu + "&commit=" + commit;
+                $.post(url_push, {},
+                    function (data) {
+                        var showtext = ""
+                        for (var i = 0; i < data.length; i++) {
+                            showtext += data[i].name + " : " + data[i].commit + "<br>";
+                        }
+                        $("#text_show").html(showtext);
+                        $("#text_commit").val("");
+                    }
+                    , "json");
+            }
+        })
+    });
+</script>
+
+<div class="container">
+    <div class="zpc">
+        <h1 id="title">美味菜品：</h1>
+        <div id="zpc-content">
+            <input type="text" id="text_commit" style="height: 50px; width: 400px">
+            <button id="button_commit">评论</button>
+            <br>
+            <h2 id="text_show"></h2>
+            <div id="zpc-content-step">
+                <div id="step-img">
+                    <a>点赞量：</a><a id="text_star"></a>
+                    <br><br>
+                    <button id="button_star">点赞</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+
+
+    <div class="jrcd"><img src="../images/index/jrms.png"/></div>
+    <div class="app" id="ex-top">
+        <div class="box" id="box-left">
+            <a href="#">
+                <div class="imgBox">
+                    <img src="../images/fried rice/nrcf.png" alt="">
+                </div>
+
+                <h2 class="title">腊肉炒饭</h2>
+
+                <p><span class="detail">
+            1.先准备原料:烟熏腊肉适量，米饭适量，鸡蛋一个，少许辣椒<br/>
+            2.腊肉蒸熟切好…… </span></p></a>
+            <div class="btn"><a href="#">了解更多</a></div>
+        </div>
+
+        <div class="box">
+            <a href="#">
+                <div class="imgBox">
+                    <img src="../images/fried rice/ymcf.jpg" alt="">
+                </div>
+
+                <h2 class="title">扬州炒饭</h2>
+            </a>
+
+            <p><span class="detail">
+            1.先准备原料:烟熏腊肉适量，米饭适量，鸡蛋一个，少许黄瓜，青豆，火腿<br/>
+            2.黄瓜和火腿切成丁…… </span></p></a>
+            <div class="btn"><a href="#">了解更多</a></div>
+        </div>
+
+        <div class="box">
+            <a href="#">
+                <div class="imgBox">
+                    <img src="../images/fried rice/hxcf.jpg" alt="">
+                </div>
+
+                <h2 class="title">海鲜炒饭</h2>
+
+                <p><span class="detail">
+            1.先准备原料:处理好的虾适量，鱿鱼须适量，米饭适量，鸡蛋一个，少许玉米<br/>
+            2.腊肉蒸熟切好…… </span></p></a>
+            <div class="btn"><a href="#">了解更多</a></div>
+        </div>
+
+    </div>
+    <div class="app">
+        <div class="box" id="box-left">
+            <a href="#">
+                <div class="imgBox">
+                    <img src="../images/fried rice/hgcf.jpg" alt="">
+                </div>
+
+                <h2 class="title">沙拉炒饭</h2>
+
+                <p><span class="detail">
+            1.先准备原料:黄瓜适量，小番茄适量，米饭适量，鸡蛋一个，少许榨腊肉芝麻<br/>
+          2.将鸡蛋打好…… </span></p></a>
+            <div class="btn"><a href="#">了解更多</a></div>
+        </div>
+        <div class="box">
+            <a href="#">
+                <div class="imgBox">
+                    <img src="../images/fried rice/htcf.jpg" alt="">
+                </div>
+
+                <h2 class="title">火腿炒饭</h2>
+
+                <p><span class="detail">
+            1.先准备原理:火腿适量，胡萝卜适量，米饭适量，鸡蛋一个，少许葱花<br/>
+            2.火腿肠切丁…… </span></p></a>
+            <div class="btn"><a href="#">了解更多</a></div>
+        </div>
+        <div class="box">
+            <a href="#">
+                <div class="imgBox">
+                    <img src="../images/fried rice/sjcf.jpg" alt="">
+                </div>
+
+                <h2 class="title">什锦炒饭</h2>
+
+                <p><span class="detail">
+            1.先准备原理:香菇适量，西兰花适量，米饭适量，鸡蛋一个，少许洋葱<br/>
+            2.切好西兰花…… </span></p></a>
+            <div class="btn"><a href="#">了解更多</a></div>
+        </div>
+
+    </div>
+
+
+    <footer>
+        <div id="footer">
+            <p>Copyright @ 2008-2018 YINGYANGZAOCAN.com, A11 rights reserved.</p>
+            <p>2020-2030，版权所有营养早餐5CP 备2013146</p>
+            <p>联系作者QQ;2837091387</p>
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

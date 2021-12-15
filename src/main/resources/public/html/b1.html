@@ -1,0 +1,474 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>北食堂一级页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Microsoft Yahei";
+            font-size: 14px;
+            background-color: #E4E1E1;
+        }
+
+        a, a:hover {
+            text-decoration: none;
+            color: #333;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        svg {
+            fill: currentColor;
+        }
+
+        .container p {
+            font-size: 20px;
+            line-height: 24px;
+            vertical-align: middle;
+            padding: 20px;
+        }
+
+        .mt-tabpage {
+            width: 1100px;
+            box-shadow: 0 0 5px #999;
+            background-color: #FFFFFF;
+            margin-top: 0px;
+            margin-right: auto;
+            margin-bottom: 10px;
+            margin-left: auto;
+        }
+
+        .mt-tabpage-title {
+            height: 44px;
+            font-size: 30px;
+            background-color: #fff;
+            width: 94%;
+            margin: auto;
+            background: #fff;
+            border-bottom: 1px solid #f1f1f1;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .mt-tabpage-title .mt-tabpage-item {
+            display: inline-block;
+            width: 105px;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            color: #666;
+            font-size: 20px;
+        }
+
+        .mt-tabpage-title .mt-tabpage-item:hover {
+            color: #eb4537;
+        }
+
+        .mt-tabpage img:hover {
+            font-size: 20px;
+            transform: scale(1.1);
+        }
+
+        .mt-tabpage-title .mt-tabpage-item-cur {
+            color: #eb4537;
+            font-size: 24px;
+            border-bottom: 1px solid #F85B5E;
+        }
+
+        .mt-tabpage-count {
+            position: relative;
+            width: 1100px;
+            height: 1040px;
+            overflow: hidden;
+        }
+
+        .mt-tabpage-cont__wrap {
+            position: absolute;
+        }
+
+        .mt-tabpage-count .mt-tabpage-item {
+            width: 1100px;
+            height: 1040px;
+
+            text-align: center;
+
+        }
+
+        .slide-content {
+            padding: 0px;
+            height: 340px;
+            width: 300px;
+            float: left;
+            margin-left: 50px;
+        }
+
+        .slide-content-text {
+            height: 32px;
+            margin-top: 0px;
+            padding-top: 8px;
+            font-size: 16px;
+        }
+
+        .container {
+            height: 950px;
+            width: 1100px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box1 {
+            width: 1100px;
+            height: 250px;
+        }
+
+        .box2 {
+            width: 1100px;
+            height: 700px;
+        }
+
+        .box1-1 {
+            width: 540px;
+            height: 250px;
+            float: left;
+            margin: 0px;
+        }
+
+        .box1-2 {
+            width: 300px;
+            height: 250px;
+            float: left;
+            margin: 0px;
+        }
+
+        .box1-3 {
+            width: 260px;
+            height: 250px;
+            float: left;
+            margin: 0px;
+        }
+
+        .box2-1 {
+            width: 275px;
+            height: 700px;
+            float: left;
+            margin: 0px;
+        }
+
+        .box2-1-1 {
+            width: 275px;
+            height: 300px;
+            margin: 0px;
+        }
+
+        .box2-1-2 {
+            width: 275px;
+            height: 400px;
+            margin: 0px;
+        }
+
+        .box2-2 {
+            width: 550px;
+            height: 700px;
+            float: left;
+            margin: 0px;
+        }
+
+        .box2-2-1 {
+            width: 550px;
+            height: 450px;
+            margin: 0px;
+        }
+
+        .box2-2-2 {
+            width: 550px;
+            height: 200px;
+            margin: 0px;
+        }
+    </style>
+    <link href="../css/banner-style.css" rel="stylesheet" type="text/css"/>
+</head>
+<script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+<script language="jquery-1.10.1.js" type="text/javascript">
+    $(document).ready(function () {
+        let userid = sessionStorage.getItem("LoginID")
+        if (userid == null) {
+            $("#text_info").text("请登陆或注册")
+        } else {
+            let url = "http://zhj12399.cn:9100/api/People/GetNameById?id=" + userid;
+            $.post(url, {},
+                function (data) {
+                    if (data.toString() !== "0") {
+                        $("#text_info").text("你好：" + data.toString())
+                    } else {
+                        sessionStorage.removeItem("LoginID");
+                        $("#text_info").text("请登陆或注册")
+                    }
+                }
+            )
+        }
+
+    });
+</script>
+<body>
+<div class="menus menus1">
+    <h1>BITASTE
+    </h1>
+    <ul>
+        <div class="bg"></div>
+        <li><span><a href="../index.html">首页</a></span></li>
+        <li><span><a href="login.html">登录</a></span></li>
+        <li><span><a href="register.html">注册</a></span></li>
+        <a id="text_info">请登陆或注册</a>
+    </ul>
+    <div class="clear"></div>
+</div>
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="../js/index.js"></script>
+<div class="banenr">
+    <div class="banner-bg">
+        <h3>北食堂</h3>
+    </div>
+</div>
+<div class="banner-x"><img src="../images/b1/b1.jpg"/></div>
+<div class="jrcd"><img src="../images/index/jrms.png"/></div>
+
+<script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+<script language="jquery-1.10.1.js" type="text/javascript">
+    $(document).ready(function () {
+        $("#鸡蛋羹").click(function () {
+            sessionStorage.setItem("msg", "鸡蛋羹");
+            window.location.href = "b2.html";
+        });
+        $("#米饭").click(function () {
+            sessionStorage.setItem("msg", "米饭");
+            window.location.href = "b2.html";
+        });
+        $("#烤红薯").click(function () {
+            sessionStorage.setItem("msg", "烤红薯");
+            window.location.href = "b2.html";
+        });
+        $("#烧茄子").click(function () {
+            sessionStorage.setItem("msg", "烧茄子");
+            window.location.href = "b2.html";
+        });
+        $("#蓝莓吐司").click(function () {
+            sessionStorage.setItem("msg", "蓝莓吐司");
+            window.location.href = "b2.html";
+        });
+        $("#西瓜吐司").click(function () {
+            sessionStorage.setItem("msg", "西瓜吐司");
+            window.location.href = "b2.html";
+        });
+        $("#水果三明治").click(function () {
+            sessionStorage.setItem("msg", "水果三明治");
+            window.location.href = "b2.html";
+        });
+        $("#简单三明治").click(function () {
+            sessionStorage.setItem("msg", "简单三明治");
+            window.location.href = "b2.html";
+        });
+        $("#鸡蛋三明治").click(function () {
+            sessionStorage.setItem("msg", "鸡蛋三明治");
+            window.location.href = "b2.html";
+        });
+        $("#鱼香肉丝盖饭").click(function () {
+            sessionStorage.setItem("msg", "鱼香肉丝盖饭");
+            window.location.href = "b2.html";
+        });
+        $("#木须肉盖饭").click(function () {
+            sessionStorage.setItem("msg", "木须肉盖饭");
+            window.location.href = "b2.html";
+        });
+        $("#辣子鸡丁盖饭").click(function () {
+            sessionStorage.setItem("msg", "辣子鸡丁盖饭");
+            window.location.href = "b2.html";
+        });
+        $("#鸡蛋饼").click(function () {
+            sessionStorage.setItem("msg", "鸡蛋饼");
+            window.location.href = "b2.html";
+        });
+        $("#米饼").click(function () {
+            sessionStorage.setItem("msg", "米饼");
+            window.location.href = "b2.html";
+        });
+        $("#贡饼").click(function () {
+            sessionStorage.setItem("msg", "贡饼");
+            window.location.href = "b2.html";
+        });
+        $("#藕饼").click(function () {
+            sessionStorage.setItem("msg", "藕饼");
+            window.location.href = "b2.html";
+        });
+        $("#手抓饼").click(function () {
+            sessionStorage.setItem("msg", "手抓饼");
+            window.location.href = "b2.html";
+        });
+        $("#桃饼").click(function () {
+            sessionStorage.setItem("msg", "桃饼");
+            window.location.href = "b2.html";
+        });
+        $("#香河肉饼").click(function () {
+            sessionStorage.setItem("msg", "香河肉饼");
+            window.location.href = "b2.html";
+        });
+        $("#麻辣鸡丝面").click(function () {
+            sessionStorage.setItem("msg", "麻辣鸡丝面");
+            window.location.href = "b2.html";
+        });
+        $("#麻辣香锅").click(function () {
+            sessionStorage.setItem("msg", "麻辣香锅");
+            window.location.href = "b2.html";
+        });
+    });
+</script>
+<div class="mt-tabpage" js-tab="2">
+    <div class="mt-tabpage-title">
+        <a href="javascript:;" class="mt-tabpage-item mt-tabpage-item-cur">一层</a>
+        <a href="javascript:;" class="mt-tabpage-item">二层</a>
+        <a href="javascript:;" class="mt-tabpage-item">三层</a>
+    </div>
+    <div class="mt-tabpage-count">
+        <ul class="mt-tabpage-cont__wrap">
+            <li class="mt-tabpage-item">
+                <div class="slide-content"><img id="鸡蛋羹" src="../images/b1/04.jpg"/></a>
+                    <div class="slide-content-text">鸡蛋羹</div>
+                </div>
+                <div class="slide-content"><img id="米饭" src="../images/b1/01.jpg"/>
+                    <div class="slide-content-text">米饭</div>
+                </div>
+                <div class="slide-content"><img id="烤红薯" src="../images/b1/02.jpg"/>
+                    <div class="slide-content-text">烤红薯</div>
+                </div>
+                <div class="slide-content"><img id="烧茄子" src="../images/b1/03.jpg"/>
+                    <div class="slide-content-text">烧茄子</div>
+                </div>
+                <div class="slide-content"><img id="蓝莓吐司" src="../images/cake/b5.jpg"/>
+                    <div class="slide-content-text">蓝莓吐司</div>
+                </div>
+                <div class="slide-content"><img id="西瓜吐司" src="../images/cake/b6.jpg"/>
+                    <div class="slide-content-text">西瓜吐司</div>
+                </div>
+                <div class="slide-content"><img id="水果三明治" src="../images/cake/b7.jpg"/>
+                    <div class="slide-content-text">水果三明治</div>
+                </div>
+                <div class="slide-content"><img id="简单三明治" src="../images/cake/b8.jpg"/>
+                    <div class="slide-content-text">简单三明治</div>
+                </div>
+                <div class="slide-content"><img id="鸡蛋三明治" src="../images/cake/b9.jpg"/>
+                    <div class="slide-content-text">鸡蛋三明治</div>
+                </div>
+
+            </li>
+            <li class="mt-tabpage-item">
+                <div class="slide-content"><img id="鱼香肉丝盖饭" src="../images/b1/08.jpg"/>
+                    <div class="slide-content-text">鱼香肉丝盖饭</div>
+                </div>
+                <div class="slide-content"><img id="木须肉盖饭" src="../images/b1/09.jpg"/>
+                    <div class="slide-content-text">木须肉盖饭</div>
+                </div>
+                <div class="slide-content"><img id="辣子鸡丁盖饭" src="../images/b1/10.jpg"/>
+                    <div class="slide-content-text">辣子鸡丁盖饭</div>
+                </div>
+                <div class="slide-content"><img id="鸡蛋饼" src="../images/cake/q4.jpg"/>
+                    <div class="slide-content-text">鸡蛋饼</div>
+                </div>
+                <div class="slide-content"><img id="米饼" src="../images/cake/q5.jpg"/>
+                    <div class="slide-content-text">米饼</div>
+                </div>
+                <div class="slide-content"><img id="贡饼" src="../images/cake/q6.jpg"/>
+                    <div class="slide-content-text">贡饼</div>
+                </div>
+                <div class="slide-content"><img id="藕饼" src="../images/cake/q7.jpg"/>
+                    <div class="slide-content-text">藕饼</div>
+                </div>
+                <div class="slide-content"><img id="手抓饼" src="../images/cake/q8.jpg"/>
+                    <div class="slide-content-text">手抓饼</div>
+                </div>
+                <div class="slide-content"><img id="桃饼" src="../images/cake/q9.jpg"/>
+                    <div class="slide-content-text">桃饼</div>
+                </div>
+            </li>
+            <li class="mt-tabpage-item">
+                <div class="slide-content"><img id="香河肉饼" src="../images/b1/06.jpg"/>
+                    <div class="slide-content-text">香河肉饼</div>
+                </div>
+                <div class="slide-content"><img id="麻辣鸡丝面" src="../images/b1/05.jpg"/>
+                    <div class="slide-content-text">麻辣鸡丝面</div>
+                </div>
+                <div class="slide-content"><img id="麻辣香锅" src="../images/b1/07.jpg"/>
+                    <div class="slide-content-text">麻辣香锅</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/mt-tabpage.js"></script>
+
+<script>
+    $(function () {
+        $('[js-tab=2]').tab({
+            curDisplay: 1,
+            changeMethod: 'horizontal'
+        });
+
+        $('[js-tab=3]').tab({
+            curDisplay: 1,
+            changeMethod: 'horizontal'
+        });
+    });
+</script>
+<hr/>
+
+
+<div class="container">
+    <div class="box1">
+        <div class="box1-1"><img src="../images/cake/3.jpg"/></div>
+        <div class="box1-2">
+            <p>披萨（Pizza）是一种著名的意大利食物，发源地是意大利的那不勒斯，在全球颇受欢迎，已经成为全球通行的食品。通常做法是用发酵的圆面饼皮上面覆盖番茄酱、奶酪和其他配料，并由烤炉烤制而成</p>
+        </div>
+        <div class="box1-3"><img src="../images/cake/2.jpg"/></div>
+    </div>
+
+    <div class="box2">
+        <div class="box2-1">
+            <div class="box2-1-1">
+                <p>
+                    手抓饼是从葱抓饼演变而来，起源于中国台湾省。其中可搭配鸡蛋、猪肉叉烧、牛肉饼、粮心香肠、藤椒鸡排、培根、方火腿、鸡柳、蔬菜等辅料。新鲜出炉后的手抓饼，千层百叠，层如薄纸，用手抓之，面丝千连，其外层金黄酥脆，内层柔软白嫩.</p>
+            </div>
+            <div class="box2-1-2"><img src="../images/cake/4.jpg"/></div>
+        </div>
+        <div class="box2-2">
+            <div class="box2-2-1"><img src="../images/cake/1.jpg"/></div>
+            <div class="box2-2-2">
+                <p>欧式面包源自欧洲古老世纪，充满异国风味，一般采用各种谷物、果仁和籽作为面团材料。谷物含有丰富的氨基酸、膳食纤维和矿物质，有助提高新陈代谢，而果仁和籽则有丰富的非饱和脂肪，有益身体健康。</p>
+            </div>
+        </div>
+        <div class="box2-1">
+            <div class="box2-1-1">
+                <p>三明治是一种典型英国快餐，以两片面包夹几片肉和奶酪、各种调料制作而成，吃法简便，制作简单，广泛流行于西方各国。</p>
+            </div>
+            <a href="#">
+                <div class="box2-1-2"><img src="../images/cake/ljgd.png"/></div>
+            </a></div>
+    </div>
+</div>
+</body>
+</html>

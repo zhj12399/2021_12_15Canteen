@@ -1,0 +1,762 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script src="js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+    <title>北理食堂</title>
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menus.menus1 h1 {
+            vertical-align: sub;
+            float: left;
+            margin-top: 30px;
+            font-size: 54px;
+            text-transform: none;
+            font-family: "华文行楷";
+            font-weight: lighter;
+            color: #ae0000;
+        }
+
+        .banenr {
+            height: 10px;
+            width: auto;
+            background-color: #e63702;
+        }
+
+        .banenr .banner-bg h3 {
+            font-size: 36px;
+            font-weight: lighter;
+            float: left;
+            margin-top: 20px;
+            color: #ee8b39;
+            margin-left: -30px;
+        }
+
+        .banner-bg {
+            margin: auto;
+            width: 1100px;
+            height: 80px;
+            padding-left: 0px;
+        }
+
+        a {
+            color: #000;
+            text-decoration: none;
+        }
+
+
+        li {
+            list-style: none;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        .menus {
+            width: 1100px;
+            margin-top: 0px;
+            margin-right: auto;
+            margin-bottom: 0px;
+            margin-left: auto;
+            height: 100px;
+        }
+
+        .menus ul {
+            width: 700px;
+            position: relative;
+            float: right;
+            margin-top: 20px;
+            font-style: italic;
+            border-bottom-width: 2px;
+            border-bottom-style: solid;
+            border-bottom-color: #ce0000;
+        }
+
+        .menus li {
+            float: left;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            font-size: 24px;
+        }
+
+        .menus li:nth-child(2) {
+            color: #fff;
+        }
+
+        .menus .bg {
+            width: 100px;
+            height: 40px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+            background-image: url(images/index/ban.png);
+        }
+
+        .tab {
+            width: 750px;
+            height: 500px;
+            border: 1px solid #000;
+            margin-top: 20px;
+            font-size: 40px;
+            line-height: 500px;
+            text-align: center;
+            color: #888;
+            font-weight: bold;
+            display: none;
+        }
+
+        .show {
+            display: block;
+        }
+
+        #footer {
+            text-align: center;
+            vertical-align: middle;
+            height: 150px;
+            padding-top: 50px;
+            color: #FFF;
+            background-color: #333;
+        }
+
+        body {
+            margin: 0px;
+            background-color: #f1f1f1;
+        }
+
+        .slider {
+            background-color: #ffb7b7;
+            height: 620px;
+            width: 1100px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            border-radius: 12px;
+            padding-bottom: 0px;
+        }
+
+
+        body {
+            width: auto;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .slider1 {
+            height: 600px;
+            width: 1080px;
+            margin-top: 10px;
+            margin-right: 10px;
+
+            margin-left: 10px;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .welcome-text {
+            height: 200px;
+            width: 1100px;
+            margin-top: 12px;
+            margin-right: auto;
+            margin-bottom: 0px;
+            margin-left: auto;
+            background-color: #f1f1f1;
+            font-size: 48px;
+            text-align: center;
+            vertical-align: middle;
+            padding-top: 40px;
+        }
+
+        .scroll-td-text {
+            height: 40px;
+            width: 280px;
+            text-align: center;
+            vertical-align: middle;
+            padding-top: 10px;
+            font-size: 24px;
+        }
+
+        .introduce {
+            height: 40px;
+            width: 1100px;
+            margin-right: auto;
+            margin-left: auto;
+            font-size: 24px;
+            padding-top: 8px;
+            border-bottom-width: 2px;
+            border-left-width: 10px;
+            border-bottom-style: solid;
+            border-left-style: solid;
+            border-bottom-color: #ce0000;
+            border-left-color: #9F3;
+        }
+
+        .introduce-content {
+            height: 500px;
+            width: 1100px;
+            margin-right: auto;
+            margin-left: auto;
+            background-color: #F0EBDB;
+            margin-bottom: 5px;
+            border-radius: 15px;
+        }
+
+        #img-introduce {
+            background-color: #ce0000;
+            float: left;
+            height: 480px;
+            width: 620px;
+            margin: 10px;
+        }
+
+        #text-introduce {
+            margin: 10px;
+            height: 480px;
+            width: 440px;
+            float: left;
+        }
+
+        .text-introducce {
+            height: 100px;
+            width: 440px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .scroll {
+            height: 380px;
+            width: 1000px;
+            margin-right: auto;
+            background-color: #FFF;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: auto;
+            margin-left: auto;
+        }
+
+        .ms-ex {
+            padding: 10px;
+            height: 440px;
+            width: 1100px;
+            border: 1px solid #999;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 14px;
+            margin-bottom: 14px;
+        }
+
+        .text-box {
+            height: 40px;
+            width: 150px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            float: left;
+            font-size: 30px;
+            text-align: center;
+            vertical-align: middle;
+            padding-top: 10px;
+
+        }
+
+        .ms-exhibition p {
+            height: 36px;
+            margin-top: 0px;
+        }
+
+
+        .ms-exhibition {
+            margin-right: auto;
+            font-size: 36px;
+            padding-top: 0px;
+            text-align: center;
+            height: 36px;
+            width: 1000px;
+            margin-left: auto;
+            margin-bottom: 0px;
+            margin-top: 0px;
+            background-color: #f1f1f1;
+        }
+
+        #text-box1 {
+            background-color: #FF6;
+            border-radius: 12px;
+        }
+
+        #text-box3 {
+            background-color: rgb(38, 0, 255);
+            border-radius: 12px;
+        }
+
+        #text4 #text-box4 {
+            background-color: #ce0000;
+            border-radius: 12px;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+            margin-left: auto;
+            margin-right: auto;
+
+
+        }
+
+        #text-box2 {
+            background-color: #ff7d7d;
+            border-radius: 12px;
+        }
+
+        .text-box-right {
+            float: left;
+            height: 80px;
+            width: 250px;
+            margin-top: 16px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            margin-left: 10px;
+            font-size: 18px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+            margin-top: 10px;
+
+
+        }
+
+        .scroll-in {
+            height: 300px;
+            width: 1080px;
+            margin-top: 40px;
+            margin-right: auto;
+            margin-left: auto;
+
+
+        }
+
+
+        .scroll-td {
+            height: 280px;
+            width: 280px;
+            margin-left: 0px;
+        }
+
+        h3 {
+            font-size: 24px;
+            line-height: 30px;
+            font-family: "微软雅黑";
+            text-indent: 48px;
+        }
+
+        h1 {
+            margin: 0px
+            padding: 0px
+        }
+
+        #app {
+            width: 1100px;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .box {
+            float: left;
+            width: 280px;
+            overflow: hidden;
+            background: #f6f6f6;
+            box-sizing: border-box;
+            margin-left: 20px;
+            padding-top: 0;
+            padding-right: 14px;
+            padding-bottom: 25px;
+            padding-left: 14px;
+            height: 400px;
+        }
+
+        #box-left {
+            margin-left: 14px;
+        }
+
+        .box a {
+            float: inherit;
+
+            flex-direction: column;
+            align-items: center;
+            color: #535353;
+            text-decoration: none;
+
+        }
+
+        #jrcd {
+            margin-top: 5px;
+        }
+
+        .img-exhibition img:hover {
+        }
+
+        #cd {
+            margin-top: 10px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .box a:hover {
+            color: #ce0000;
+        }
+
+        .imgBox {
+            width: 280px;
+            height: 187px;
+            overflow: hidden;
+        }
+
+        .imgBox img {
+            width: 100%;
+            height: 100%;
+            transition: all 0.6s linear;
+        }
+
+        .source {
+            border: 1px solid #535353;
+            padding: 6px 20px;
+            border-radius: 25px;
+            margin: 20px;
+        }
+
+        .title {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .detail {
+            font-size: 14px;
+            line-height: 160%;
+            text-align: justify;
+            width: 100%;
+        }
+
+        .box > a::after {
+            content: '';
+            width: 280px;
+            position: absolute;
+            background: #ce0000;
+            bottom: 0;
+            height: 0px;
+            transition: height 0.3s linear;
+
+        }
+
+
+        .box:hover img {
+            transform: scale(1.15);
+        }
+
+        .box:hover .source {
+            background: #6d2de5;
+            border-color: #6d2de5;
+            color: #ffffff;
+        }
+
+        .exhibition {
+            width: 1100px;
+            height: 250px;
+
+            margin-right: auto;
+
+            margin-left: auto;
+
+        }
+
+        .exhibition img {
+            width: 200px;
+            height: 200px;
+
+        }
+
+        .img-exhibition {
+            margin-top: 25px;
+            width: 200px;
+            height: 200px;
+            margin-right: 80px;
+            float: left;
+        }
+
+        .img-exhibition-first {
+            margin-left: 30px;
+            margin-right: 80px;
+            margin-top: 25px;
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+
+        .img-exhibition-last {
+            margin-right: 30px;
+            margin-top: 25px;
+            width: 200px;
+            height: 200px;
+            float: left;
+        }
+
+        .exhibition-text {
+            width: 200px;
+            height: 25px;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .container {
+            padding: 0px;
+            height: 600px;
+            width: 1100px;
+            margin-top: 50px;
+            margin-right: auto;
+            margin-bottom: 40px;
+            margin-left: auto;
+        }
+
+        .introduce-left {
+            padding-top: 100px;
+            width: 300px;
+            margin-left: 25px;
+            margin-right: 25px;
+            height: 500px;
+            float: left;
+        }
+
+        .introduce-right {
+            width: 300px;
+            margin-left: 25px;
+            margin-top: 200px;
+            height: 450px;
+            float: left;
+        }
+    </style>
+
+    <link href="css/swiper.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<script type="text/javascript" src="/js/jquery-3.5.1.min.js"></script>
+<script language="jquery-1.10.1.js" type="text/javascript">
+    $(document).ready(function () {
+        let userid = sessionStorage.getItem("LoginID")
+        if (userid == null) {
+            $("#text_info").text("请登陆或注册")
+        } else {
+            let url = "http://zhj12399.cn:9100/api/People/GetNameById?id=" + userid;
+            $.post(url, {},
+                function (data) {
+                    if (data.toString() !== "0") {
+                        $("#text_info").text("你好：" + data.toString())
+                    } else {
+                        sessionStorage.removeItem("LoginID");
+                        $("#text_info").text("请登陆或注册")
+                    }
+                }
+            )
+
+        }
+    });
+</script>
+<body>
+<link rel="stylesheet" type="text/css" href="html/homebackground.css"/>
+<div class="menus menus1">
+    <h1>BITASTE
+    </h1>
+    <ul>
+        <div class="bg"></div>
+        <li><span><a href="index.html">首页</a></span></li>
+        <li><span><a href="html/login.html">登录</a></span></li>
+        <li><span><a href="html/register.html">注册</a></span></li>
+        <a id="text_info">请登陆或注册</a>
+    </ul>
+    <div class="clear"></div>
+</div>
+
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="js/index.js"></script>
+<div class="banenr">
+</div>
+</div>
+<div class="slider">
+    <div class="slider1">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/index/jz.jpg"/></div>
+                <div class="swiper-slide"><a href="html/xz.html" target="new"><img src="images/index/xz.jpg"/></a></div>
+                <div class="swiper-slide"><a href="html/fired rice.html" target="new"><img
+                        src="images/index/cf.jpg"/></a></div>
+                <div class="swiper-slide"><a href="html/noodle.html" target="new"><img src="images/index/mt.jpg"/></a>
+                </div>
+                <div class="swiper-slide"><a href="html/drink.html" target="new"><img src="images/index/gz.jpg"/></a>
+                </div>
+                <div class="swiper-slide"><a href="html/bread.html" target="new"><img src="images/index/mb.jpg"/></a>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <script>
+            var swiper = new Swiper('.swiper-container', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        </script>
+    </div>
+</div>
+<hr/>
+<div id="app">
+    <div class="box" id="box-left">
+        <a href="#">
+            <div class="imgBox">
+                <a href="html/b1.html"><img src="images/drink/e1.jpg" alt=""></a>
+            </div>
+            <span class="source">好评如潮</span>
+            <h2 class="title">北食堂</h2>
+            <p>一层：传统食堂，快速方便</p>
+            <p>二层：精致小炒，美味健康</p>
+            <p>三层：各地美食，丰富多彩</p></a>
+    </div>
+    <div class="box">
+        <a href="#">
+            <div class="imgBox">
+                <a href="html/n1.html"><img src="images/drink/e2.jpg" alt=""></a>
+            </div>
+            <span class="source">营养均衡</span>
+            <h2 class="title">南食堂</h2>
+            <p><em id="step_num1">一层：传统食堂，快速方便</p>
+            <p><em id="step_num2">二层：精致小炒，美味健康</p>
+            <p><em id="step_num3">三层：各地美食，丰富多彩&nbsp;</p></a>
+    </div>
+
+    <div class="box">
+        <a href="#">
+            <div class="imgBox">
+                <a href="html/d1.html"><img src="images/drink/e3.jpg" alt=""></a>
+            </div>
+            <span class="source">流连忘返</span>
+            <h2 class="title">东食堂</h2>
+
+            <p>一层：传统食堂，快速方便</p></a>
+        <p>二层：精致小炒，美味健康</p>
+        <p>三层：各地美食，丰富多彩</p></a>
+
+    </div>
+</div>
+
+
+<div id="app">
+    <div class="box">
+        <a href="#">
+            <div class="imgBox">
+                <a href="html/q1.html"><img src="images/drink/e1.jpg" alt=""></a>
+            </div>
+            <span class="source">好评如潮</span>
+            <h2 class="title">清真食堂</h2>
+            <p>一层：传统食堂，快速方便</p>
+            <p>二层：精致小炒，美味健康</p>
+            <p>三层：各地美食，丰富多彩</p></a>
+    </div>
+    <div class="box">
+        <a href="#">
+            <div class="imgBox">
+                <a href="html/x1.html"><img src="images/drink/e2.jpg" alt=""></a>
+            </div>
+            <span class="source">营养均衡</span>
+            <h2 class="title">学服</h2>
+            <p><em id="step_num1">一层：传统食堂，快速方便</p>
+            <p><em id="step_num2">二层：精致小炒，美味健康</p>
+            <p><em id="step_num3">三层：各地美食，丰富多彩&nbsp;</p></a>
+    </div>
+</div>
+
+
+<hr/>
+
+<div class="ms-ex">
+    <div class="ms-exhibition">
+        <p>好吃才是硬道理</p></div>
+    <div class="scroll">
+        <marquee direction="right" behavior="alternate" scrolldelay="200" onmouseover="stop()" onmouseout="start()">
+            <table width="2400" border="0" cellspacing="20" cellpadding="0">
+                <tr>
+                    <td class="scroll-td"><img src="images/index/01.jpg"/></td>
+                    <td class="scroll-td"><img src="images/index/02.jpg"/></td>
+                    <td class="scroll-td"><img src="images/index/03.jpg"/></td>
+                    <td class="scroll-td"><img src="images/index/04.jpg"/></td>
+                    <td class="scroll-td"><img src="images/index/05.jpg"/></td>
+                    <td class="scroll-td"><img src="images/index/06.jpg"/></td>
+                    <td class="scroll-td"><img src="images/index/07.jpg"/></td>
+                    <td class="scroll-td"><img src="images/index/08.jpg"/></td>
+                </tr>
+                <tr>
+                    <td class="scroll-td-text">薏米豆浆</td>
+                    <td class="scroll-td-text">莲子八宝粥</td>
+                    <td class="scroll-td-text">家常小笼包</td>
+                    <td class="scroll-td-text">菠萝吐司</td>
+                    <td class="scroll-td-text">猪肉水饺</td>
+                    <td class="scroll-td-text">蔬菜火腿三明治</td>
+                    <td class="scroll-td-text">鲜虾面</td>
+                    <td class="scroll-td-text">纯牛奶</td>
+                </tr>
+            </table>
+        </marquee>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
